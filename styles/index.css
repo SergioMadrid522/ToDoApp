@@ -1,0 +1,183 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+.task-container {
+  border: 1px solid rgb(206, 204, 204);
+  border-radius: 5px;
+  margin-bottom: 15px;
+  user-select: none;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE/Edge */
+}
+.task-container .task-name-container {
+  background-color: aliceblue;
+  border-bottom: 1px solid rgba(150, 149, 149, 0.573);
+  padding: 10px;
+  position: relative;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 750;
+  font-style: bold;
+}
+.task-container .task-name-container span {
+  cursor: pointer;
+}
+.task-container .task-name-container .delete-task-btn {
+  position: absolute;
+  right: 2px;
+  top: 2px;
+}
+.task-container .task-name-container .delete-task-btn button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  width: 23px;
+  height: 23px;
+}
+.task-container .task-name-container .delete-task-btn button svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.task-container .task-name-container .delete-task-btn button svg path {
+  transform: scale(1);
+  transform-origin: center;
+  fill: rgb(150, 148, 148);
+}
+.task-container .task-description {
+  display: none;
+  font-family: "Open Sans", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  padding: 10px;
+  width: 100%;
+  transition: max-height 0.3s ease;
+  overflow: hidden;
+}
+.task-container .task-description.show {
+  display: block;
+  max-height: 500px;
+}
+
+#task-sender-container #taskSender {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+}
+#task-sender-container #taskSender #name {
+  width: 250px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+#task-sender-container #taskSender #name #taskName {
+  width: 100%;
+  padding: 5px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 500;
+  font-style: bold;
+  border: 1px solid rgba(150, 149, 149, 0.573);
+  border-radius: 4px;
+}
+#task-sender-container #taskSender #name #taskName:focus {
+  outline: none;
+}
+#task-sender-container #taskSender #name #taskName:-moz-placeholder-shown {
+  font-weight: 750;
+  font-style: bold;
+}
+#task-sender-container #taskSender #name #taskName:placeholder-shown {
+  font-weight: 750;
+  font-style: bold;
+}
+#task-sender-container #taskSender #description {
+  width: 500px;
+  margin: auto;
+  margin-bottom: 10px;
+  height: 250px;
+}
+#task-sender-container #taskSender #description #taskDescription {
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  font-size: 14px;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  resize: none;
+  border: 1px solid rgba(150, 149, 149, 0.573);
+  border-radius: 4px;
+}
+#task-sender-container #taskSender #description #taskDescription:focus {
+  outline: none;
+}
+#task-sender-container #taskSender #description #taskDescription:-moz-placeholder-shown {
+  font-weight: 750;
+  font-style: bold;
+}
+#task-sender-container #taskSender #description #taskDescription:placeholder-shown {
+  font-weight: 750;
+  font-style: bold;
+}
+#task-sender-container #taskSender #add-task-to-list {
+  width: 130px;
+  margin: auto;
+}
+#task-sender-container #taskSender #add-task-to-list button {
+  cursor: pointer;
+  border: none;
+  border-radius: 7px;
+  padding: 3px 7.5px;
+  width: 100%;
+  transition: box-shadow 0.2s ease;
+  background-color: aliceblue;
+  font-weight: normal;
+}
+#task-sender-container #taskSender #add-task-to-list button:hover {
+  background-color: rgb(220, 235, 246);
+  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.233);
+  font-weight: 600;
+}
+
+.layout {
+  display: grid;
+  grid: "sidebar body" 1fr/auto 1fr;
+  height: 100dvh;
+}
+.layout .sidebar {
+  border-right: 1px solid rgba(150, 149, 149, 0.573);
+  grid-area: sidebar;
+  padding: 10px;
+  width: 300px;
+  height: 100%;
+  overflow: auto;
+}
+.layout .sidebar h2 {
+  text-align: center;
+  margin-bottom: 10px;
+}
+.layout .sidebar::-webkit-scrollbar {
+  width: 5px;
+}
+.layout .sidebar::-webkit-scrollbar-thumb {
+  background-color: #bbb8b8;
+  border-radius: 4px;
+}
+.layout .sidebar::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+.body {
+  grid-area: body;
+  margin: auto;
+}/*# sourceMappingURL=index.css.map */

@@ -1,0 +1,38 @@
+@use './components/fonts';
+@use './components/generalStyles';
+@use './components/taskContainer';
+@use './components/taskSender';
+.layout {
+  display: grid;
+  grid: "sidebar body" 1fr / auto 1fr;
+  height: 100dvh;
+    .sidebar {
+      border-right: 1px solid rgba(150, 149, 149, 0.573);
+      grid-area: sidebar;
+      padding: 10px;
+      width: 300px;
+      height: 100%;
+      overflow: auto;
+      h2 {
+          text-align: center;
+          margin-bottom: 10px;
+      }
+      //Scrollbar Personalization
+      &::-webkit-scrollbar {
+        width: 5px;
+      }
+      &::-webkit-scrollbar-thumb {
+        background-color: #bbb8b8;
+        border-radius: 4px;
+      }
+      &::-webkit-scrollbar-track {
+        background-color: transparent;
+      }
+    }
+    
+}
+
+.body {
+  grid-area: body;
+  margin: auto;
+}
