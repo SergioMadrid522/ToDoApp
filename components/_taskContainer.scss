@@ -1,0 +1,24 @@
+.task-container {
+    border: 1px solid rgb(206, 204, 204);
+    border-radius: 5px;
+    .task-name {
+        background-color: aliceblue;
+        border-bottom: 1px solid rgba(150, 149, 149, 0.573);
+        overflow: hidden;
+        padding: 10px;
+        position: relative;
+        overflow: auto;
+        &::after {
+            background-color: red;
+            content: 'hola';
+            position: absolute;
+            
+            right: 0;
+            top: 0;
+        }
+    }
+    .task-description {
+        
+        padding: 10px;
+    }
+}
