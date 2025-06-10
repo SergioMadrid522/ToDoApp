@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0;
@@ -149,6 +150,24 @@
   font-weight: 600;
 }
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  /* outline: 1px solid red; */
+}
+
+input,
+textarea,
+select {
+  font-size: 16px; /* Mínimo 16px para evitar auto-zoom */
+}
+
+body #show-tasks,
+body #close-menu {
+  display: none;
+}
+
 .layout {
   display: grid;
   grid: "sidebar body" 1fr/auto 1fr;
@@ -180,4 +199,43 @@
 .body {
   grid-area: body;
   margin: auto;
+}
+
+@media screen and (width <= 771px) {
+  #show-tasks {
+    display: block !important;
+    padding: 15px 20px;
+  }
+  #show-tasks .bi-list {
+    font-size: 30px;
+  }
+  #close-menu {
+    padding: 10px 20px;
+  }
+  #close-menu .bi-x-lg {
+    font-size: 30px;
+  }
+  .layout {
+    position: relative;
+  }
+  .layout .sidebar {
+    display: none;
+  }
+  .layout .sidebar.active {
+    display: block !important;
+    background-color: #fff;
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    z-index: 999;
+  }
+  .layout .body {
+    text-align: center;
+  }
+  .layout .body #description {
+    width: auto !important;
+  }
+  .layout .body #description textarea {
+    width: 350px !important;
+  }
 }/*# sourceMappingURL=index.css.map */

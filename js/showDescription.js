@@ -1,13 +1,14 @@
-const taskNames = document.querySelectorAll('.task-name');
+const sidebar = document.querySelector(".sidebar");
 
-taskNames.forEach(taskName => {
-  taskName.addEventListener('click', () => {
-    const taskContainer = taskName.closest('.task-container');
-    if (!taskContainer) return;
+sidebar.addEventListener("click", (e) => {
+  const taskName = e.target.closest(".task-name");
+  if (!taskName) return;
 
-    const taskDescription = taskContainer.querySelector('.task-description');
-    if (!taskDescription) return;
+  const taskContainer = taskName.closest(".task-container");
+  if (!taskContainer) return;
 
-    taskDescription.classList.toggle('show');
-  });
+  const taskDescription = taskContainer.querySelector(".task-description");
+  if (!taskDescription) return;
+
+  taskDescription.classList.toggle("show");
 });
