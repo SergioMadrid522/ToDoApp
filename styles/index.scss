@@ -2,64 +2,107 @@
 @use "./components/generalStyles";
 @use "./components/taskContainer";
 @use "./components/taskSender";
+@use "./components/variables" as *;
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid red; */
-}
-input,
-textarea,
-select {
-  font-size: 16px; /* Mínimo 16px para evitar auto-zoom */
+  font-family: $font-main;
 }
 
 body {
-  #show-tasks,
-  #close-menu {
-    display: none;
-  }
-}
-.layout {
-  display: grid;
-  grid: "sidebar body" 1fr / auto 1fr;
-  height: 100dvh;
-  .sidebar {
-    border-right: 1px solid rgba(150, 149, 149, 0.573);
-    grid-area: sidebar;
-    padding: 10px;
-    width: 300px;
-    height: 100%;
-    overflow: auto;
-    h2 {
-      text-align: center;
-      margin-bottom: 10px;
-    }
-    &::-webkit-scrollbar {
-      width: 5px;
-    }
-    &::-webkit-scrollbar-thumb {
-      background-color: #bbb8b8;
-      border-radius: 4px;
-    }
-    &::-webkit-scrollbar-track {
-      background-color: transparent;
-    }
-  }
-}
-.body {
-  grid-area: body;
-  margin: auto;
+  background-color: $background;
+  color: $text;
 }
 
-@media screen and (width <= 771px) {
+.layout {
+  display: grid;
+  grid-template-areas: "sidebar body";
+  grid-template-columns: 280px 1fr;
+  height: 100dvh;
+
+  .sidebar {
+    grid-area: sidebar;
+    background: white;
+    border-right: 1px solid $border;
+    padding: 2rem;
+    overflow-y: auto;
+
+    h2 {
+      font-size: 1.5rem;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: $primary;
+    }
+
+    &::-webkit-scrollbar {
+      width: 6px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: $border;
+      border-radius: $radius;
+    }
+  }
+
+  .body {
+    grid-area: body;
+    padding: 2rem;
+    overflow-y: auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  #show-tasks,
+  #close-menu {
+    display: block;
+    background: $primary;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: $radius;
+    margin: 1rem;
+    cursor: pointer;
+  }
+
+  .layout {
+    grid-template-areas: "body";
+    grid-template-columns: 1fr;
+
+    .sidebar {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 80%;
+      height: 100%;
+      z-index: 1000;
+      background: white;
+      box-shadow: $shadow;
+      display: none;
+
+      &.active {
+        display: block;
+      }
+    }
+
+    .body {
+      padding: 1.5rem;
+    }
+  }
+}
+
+@media screen and (max-width: 771px) {
   #show-tasks {
     display: block !important;
     padding: 15px 20px;
+
     .bi-list {
       font-size: 30px;
     }
   }
+
   #close-menu {
     padding: 10px 20px;
 
@@ -67,23 +110,28 @@ body {
       font-size: 30px;
     }
   }
+
   .layout {
     position: relative;
+
     .sidebar {
       display: none;
+
       &.active {
         display: block !important;
-        background-color: #fff;
-        flex-direction: column;
         position: absolute;
+        background: white;
         bottom: 0;
         z-index: 999;
       }
     }
+
     .body {
       text-align: center;
+
       #description {
         width: auto !important;
+
         textarea {
           width: 350px !important;
         }

@@ -1,5 +1,3 @@
-import { confirmedDelete } from "./sweetAlert/deleteAlert.js";
-
 document.addEventListener("click", async (e) => {
   const deleteBtn = e.target.closest(".delete-task-btn");
   if (!deleteBtn) return;

@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 * {
   margin: 0;
@@ -8,200 +7,186 @@
 }
 
 .task-container {
-  border: 1px solid rgb(206, 204, 204);
-  border-radius: 5px;
-  margin-bottom: 15px;
-  user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
+  background: white;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  transition: all 0.25s ease;
 }
 .task-container .task-name-container {
-  background-color: aliceblue;
-  border-bottom: 1px solid rgba(150, 149, 149, 0.573);
-  padding: 10px;
-  position: relative;
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 750;
-  font-style: bold;
-}
-.task-container .task-name-container span {
+  background: #e0e7ff;
+  padding: 1rem;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   cursor: pointer;
-}
-.task-container .task-name-container .delete-task-btn {
-  position: absolute;
-  right: 2px;
-  top: 2px;
 }
 .task-container .task-name-container .delete-task-btn button {
-  background-color: transparent;
+  background: transparent;
   border: none;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  width: 23px;
-  height: 23px;
 }
 .task-container .task-name-container .delete-task-btn button svg {
-  width: 100%;
-  height: 100%;
-  display: block;
+  width: 20px;
+  height: 20px;
 }
 .task-container .task-name-container .delete-task-btn button svg path {
-  transform: scale(1);
-  transform-origin: center;
-  fill: rgb(150, 148, 148);
+  fill: #6b7280;
+  transition: fill 0.25s ease;
+}
+.task-container .task-name-container .delete-task-btn button svg:hover path {
+  fill: crimson;
 }
 .task-container .task-description {
   display: none;
-  font-family: "Open Sans", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  padding: 10px;
-  width: 100%;
-  transition: max-height 0.3s ease;
-  overflow: hidden;
+  padding: 1rem;
+  font-size: 0.95rem;
+  color: #6b7280;
+  transition: all 0.25s ease;
 }
 .task-container .task-description.show {
   display: block;
-  max-height: 500px;
 }
 
 #task-sender-container #taskSender {
   display: flex;
   flex-direction: column;
+  gap: 1.2rem;
+  max-width: 600px;
   margin: 0 auto;
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
-#task-sender-container #taskSender #name {
-  width: 250px;
-  margin: auto;
-  margin-bottom: 10px;
-}
-#task-sender-container #taskSender #name #taskName {
+#task-sender-container #taskSender input,
+#task-sender-container #taskSender textarea {
   width: 100%;
-  padding: 5px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 500;
-  font-style: bold;
-  border: 1px solid rgba(150, 149, 149, 0.573);
-  border-radius: 4px;
+  padding: 0.75rem 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-family: "Inter", sans-serif;
+  background: #f9fafb;
+  transition: border 0.25s ease;
 }
-#task-sender-container #taskSender #name #taskName:focus {
+#task-sender-container #taskSender input:focus,
+#task-sender-container #taskSender textarea:focus {
   outline: none;
+  border-color: #4f46e5;
 }
-#task-sender-container #taskSender #name #taskName:-moz-placeholder-shown {
-  font-weight: 750;
-  font-style: bold;
+#task-sender-container #taskSender input::-moz-placeholder, #task-sender-container #taskSender textarea::-moz-placeholder {
+  color: #6b7280;
 }
-#task-sender-container #taskSender #name #taskName:placeholder-shown {
-  font-weight: 750;
-  font-style: bold;
+#task-sender-container #taskSender input::placeholder,
+#task-sender-container #taskSender textarea::placeholder {
+  color: #6b7280;
 }
-#task-sender-container #taskSender #description {
-  width: 500px;
-  margin: auto;
-  margin-bottom: 10px;
-  height: 250px;
-}
-#task-sender-container #taskSender #description #taskDescription {
-  width: 100%;
-  height: 100%;
-  padding: 10px;
-  font-size: 14px;
-  font-family: "Open Sans", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-  resize: none;
-  border: 1px solid rgba(150, 149, 149, 0.573);
-  border-radius: 4px;
-}
-#task-sender-container #taskSender #description #taskDescription:focus {
-  outline: none;
-}
-#task-sender-container #taskSender #description #taskDescription:-moz-placeholder-shown {
-  font-weight: 750;
-  font-style: bold;
-}
-#task-sender-container #taskSender #description #taskDescription:placeholder-shown {
-  font-weight: 750;
-  font-style: bold;
+#task-sender-container #taskSender textarea {
+  resize: vertical;
+  min-height: 150px;
 }
 #task-sender-container #taskSender #add-task-to-list {
-  width: 130px;
-  margin: auto;
+  text-align: center;
 }
 #task-sender-container #taskSender #add-task-to-list button {
-  cursor: pointer;
+  background-color: #4f46e5;
+  color: white;
+  padding: 0.75rem 1.5rem;
   border: none;
-  border-radius: 7px;
-  padding: 3px 7.5px;
-  width: 100%;
-  transition: box-shadow 0.2s ease;
-  background-color: aliceblue;
-  font-weight: normal;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.25s ease, box-shadow 0.25s ease;
 }
 #task-sender-container #taskSender #add-task-to-list button:hover {
-  background-color: rgb(220, 235, 246);
-  box-shadow: 1px 3px 10px rgba(0, 0, 0, 0.233);
-  font-weight: 600;
+  background-color: #291fd9;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* outline: 1px solid red; */
+  font-family: "Inter", sans-serif;
 }
 
-input,
-textarea,
-select {
-  font-size: 16px; /* Mínimo 16px para evitar auto-zoom */
-}
-
-body #show-tasks,
-body #close-menu {
-  display: none;
+body {
+  background-color: #f9fafb;
+  color: #111827;
 }
 
 .layout {
   display: grid;
-  grid: "sidebar body" 1fr/auto 1fr;
+  grid-template-areas: "sidebar body";
+  grid-template-columns: 280px 1fr;
   height: 100dvh;
 }
 .layout .sidebar {
-  border-right: 1px solid rgba(150, 149, 149, 0.573);
   grid-area: sidebar;
-  padding: 10px;
-  width: 300px;
-  height: 100%;
-  overflow: auto;
+  background: white;
+  border-right: 1px solid #d1d5db;
+  padding: 2rem;
+  overflow-y: auto;
 }
 .layout .sidebar h2 {
+  font-size: 1.5rem;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
+  color: #4f46e5;
 }
 .layout .sidebar::-webkit-scrollbar {
-  width: 5px;
+  width: 6px;
 }
 .layout .sidebar::-webkit-scrollbar-thumb {
-  background-color: #bbb8b8;
-  border-radius: 4px;
+  background-color: #d1d5db;
+  border-radius: 8px;
 }
-.layout .sidebar::-webkit-scrollbar-track {
-  background-color: transparent;
-}
-
-.body {
+.layout .body {
   grid-area: body;
-  margin: auto;
+  padding: 2rem;
+  overflow-y: auto;
 }
 
-@media screen and (width <= 771px) {
+@media screen and (max-width: 768px) {
+  #show-tasks,
+  #close-menu {
+    display: block;
+    background: #4f46e5;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border-radius: 8px;
+    margin: 1rem;
+    cursor: pointer;
+  }
+  .layout {
+    grid-template-areas: "body";
+    grid-template-columns: 1fr;
+  }
+  .layout .sidebar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80%;
+    height: 100%;
+    z-index: 1000;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: none;
+  }
+  .layout .sidebar.active {
+    display: block;
+  }
+  .layout .body {
+    padding: 1.5rem;
+  }
+}
+@media screen and (max-width: 771px) {
   #show-tasks {
     display: block !important;
     padding: 15px 20px;
@@ -223,9 +208,8 @@ body #close-menu {
   }
   .layout .sidebar.active {
     display: block !important;
-    background-color: #fff;
-    flex-direction: column;
     position: absolute;
+    background: white;
     bottom: 0;
     z-index: 999;
   }

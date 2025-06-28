@@ -1,66 +1,54 @@
+@use "../components/variables" as *;
+
 .task-container {
-  border: 1px solid rgb(206, 204, 204);
-  border-radius: 5px;
-  margin-bottom: 15px;
-  user-select: none;
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE/Edge */
+  background: white;
+  border: 1px solid $border;
+  border-radius: $radius;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  box-shadow: $shadow;
+  transition: all $transition;
+
   .task-name-container {
-    background-color: aliceblue;
-    border-bottom: 1px solid rgba(150, 149, 149, 0.573);
-    padding: 10px;
-    position: relative;
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 750;
-    font-style: bold;
-    span {
-      cursor: pointer;
-    }
+    background: $secondary;
+    padding: 1rem;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+
     .delete-task-btn {
-      position: absolute;
-      right: 2px;
-      top: 2px;
       button {
-        background-color: transparent;
+        background: transparent;
         border: none;
         cursor: pointer;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        padding: 0;
-        width: 23px;
-        height: 23px;
-        //span {
-        //  width: 100%;
+
         svg {
-          width: 100%;
-          height: 100%;
-          display: block;
+          width: 20px;
+          height: 20px;
           path {
-            transform: scale(1);
-            transform-origin: center;
-            fill: rgb(150, 148, 148);
+            fill: $text-muted;
+            transition: fill $transition;
+          }
+
+          &:hover path {
+            fill: crimson;
           }
         }
-        //}
       }
     }
   }
+
   .task-description {
     display: none;
-    font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-weight: 400;
-    font-style: normal;
-    padding: 10px;
-    width: 100%;
-    transition: max-height 0.3s ease;
-    overflow: hidden;
+    padding: 1rem;
+    font-size: 0.95rem;
+    color: $text-muted;
+    transition: all $transition;
+
     &.show {
       display: block;
-      max-height: 500px;
     }
   }
 }
