@@ -1,7 +1,7 @@
 export function showData() {
   const sidebar = document.querySelector(".sidebar");
 
-  // 💥 Limpiar tareas previas antes de volver a renderizar
+
   const existingTasks = sidebar.querySelectorAll(".task-container");
   existingTasks.forEach((task) => task.remove());
 
