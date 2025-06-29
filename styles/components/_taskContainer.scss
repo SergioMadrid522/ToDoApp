@@ -17,7 +17,7 @@
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
-
+    user-select: none;
     .delete-task-btn {
       button {
         background: transparent;
@@ -46,7 +46,7 @@
     font-size: 0.95rem;
     color: $text-muted;
     transition: all $transition;
-
+    user-select: none;
     &.show {
       display: block;
     }
